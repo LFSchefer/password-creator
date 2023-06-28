@@ -1,0 +1,11 @@
+.navbar {
+  margin-top: 0;
+  height: 10vh;
+  background-color: aqua;
+  text-align: center;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+}
