@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from "./component/Navbar"
 import Footer from "./component/Footer"
-import InputForm from './component/InputForm';
+import {InputForm} from './component/InputForm';
 
 function App() {
   return (
