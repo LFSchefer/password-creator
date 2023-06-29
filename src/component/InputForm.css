@@ -7,3 +7,23 @@
   width: 65%;
   margin: 0 auto;
 }
+
+.password {
+  background-color: dimgrey;
+  color: azure;
+  border-radius: 8px;
+  padding: 12px 30px;
+  margin: 12px auto;
+  width: fit-content;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  margin-top: 12px;
+}

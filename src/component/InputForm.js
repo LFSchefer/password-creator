@@ -5,24 +5,20 @@ function InputForm(props) {
 
   const [firstWord, setfirstWord] = React.useState({value:""})
   const [secondWord, setSecondWord] = React.useState({value:""})
-  const [password, setPassword] = React.useState(["first", "second", 0,0,0,0, false])
+  const [password, setPassword] = React.useState({value: "", ready: false})
 
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const randomNumber = Math.floor(Math.random() * 10)
     if (firstWord.value !== "" && secondWord.value !== "") {
-      setPassword([
-        firstWord.value,
-        secondWord.value,
-        randomNumber,
-        true
-      ]
-      )
+      const randomNumber = Math.floor(Math.random() * 10)
+      const word1 = firstWord.value
+      const word2 = secondWord.value
+      setPassword({value: randomNumber, ready:true})
+      console.log(password)
     }
   }
-  console.log(firstWord.value !== "" && secondWord.value !== "")
-  // console.log(password.pop())
+  // console.log(firstWord.value !== "" && secondWord.value !== "")
 
   const handleFirstWord = (event) => {
     setfirstWord( prev => {
@@ -39,24 +35,24 @@ function InputForm(props) {
 
   return (
     <>
-      <form onClick={handleSubmit}>
+      <form >
         <div className="form-container">
-        <div className="first-input">
+        <div className="input">
           <label>
             First word:
-            <input type="text" name="first-word" value={firstWord.value} onChange={e => handleFirstWord(e.target.value)} />
           </label>
+          <input type="text" name="first-word" value={firstWord.value} onChange={e => handleFirstWord(e.target.value)} />
         </div>
-        <div className="second-input">
+        <div className="input">
           <label>
             Second word:
-            <input type="text" name="second-word" value={secondWord.value} onChange={e => handleSecondWord(e.target.value)} />
           </label>
+          <input type="text" name="second-word" value={secondWord.value} onChange={e => handleSecondWord(e.target.value)} />
         </div>
-        <input type="submit" value="generate password"/>
         </div>
       </form>
-      {password.pop() && <div className="password">teste</div>}
+      <button onClick={handleSubmit}>Create password</button>
+      {password.ready && <div className="password"><h3>{password.value}</h3></div>}
     </>
   )
 }
