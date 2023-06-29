@@ -1,5 +1,9 @@
 import * as React from "react"
 import "./InputForm.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
+
+
 
 function InputForm(props) {
 
@@ -57,13 +61,13 @@ function InputForm(props) {
   const handleFirstWord = (event) => {
     setfirstWord( prev => {
       return {...prev,
-        value: event}
+        value: event.toLowerCase()}
       })
   }
   const handleSecondWord = (event) => {
     setSecondWord( prev => {
       return {...prev,
-        value: event}
+        value: event.toLowerCase()}
       })
   }
 
@@ -74,6 +78,7 @@ function InputForm(props) {
       alert("Password copied to clipboard")
     },() => {
       console.error('Failed to copy');
+      alert("Something went wrong please try again later")
     });
 
   }
@@ -84,23 +89,23 @@ function InputForm(props) {
         <div className="form-container">
         <div className="input">
           <label>
-            First word:
+            First word :
           </label>
           <input type="text" name="first-word" value={firstWord.value} onChange={e => handleFirstWord(e.target.value)} />
         </div>
         <div className="input">
           <label>
-            Second word:
+            Second word :
           </label>
           <input type="text" name="second-word" value={secondWord.value} onChange={e => handleSecondWord(e.target.value)} />
         </div>
         </div>
       </form>
-      <button onClick={handleSubmit}>Create password</button>
+      <button className="btn-password" onClick={handleSubmit}>Create password</button>
       {password.ready && <div className="password">
         <h3 id="final">{password.value}</h3>
+        <FontAwesomeIcon className="copy" icon={faCopy} size="xl" onClick={() => toClipboard()} />
         </div>}
-        <div onClick={() => toClipboard()}>click</div>
     </>
   )
 }
