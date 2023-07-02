@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 
-
 function InputForm(props) {
 
   const [firstWord, setfirstWord] = React.useState({value:""})
