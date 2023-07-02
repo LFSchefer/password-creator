@@ -1,7 +1,7 @@
 import * as React from "react"
 import "./InputForm.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 
 function InputForm(props) {
@@ -9,6 +9,7 @@ function InputForm(props) {
   const [firstWord, setfirstWord] = React.useState({value:""})
   const [secondWord, setSecondWord] = React.useState({value:""})
   const [password, setPassword] = React.useState({value: "", ready: false})
+  const [isCopyed, setIsCopied] = React.useState(false)
 
 
   const handleSubmit = (event) => {
@@ -53,6 +54,7 @@ function InputForm(props) {
       shuffleArray(password)
 
       setPassword({value: password.join(""), ready:true})
+      setIsCopied(false)
 
     }
   }
@@ -74,13 +76,14 @@ function InputForm(props) {
     let text = document.getElementById('final').innerText;
 
     navigator.clipboard.writeText(text).then(() => {
-      alert("Password copied to clipboard")
+      setIsCopied(true)
     },() => {
       console.error('Failed to copy');
       alert("Something went wrong please try again later")
     });
 
   }
+
 
   return (
     <>
@@ -104,7 +107,10 @@ function InputForm(props) {
       {password.ready && <div className="password">
         <h3 id="final">{password.value}</h3>
         <FontAwesomeIcon className="copy" icon={faCopy} size="xl" onClick={() => toClipboard()} />
-        </div>}
+        { isCopyed &&
+        <FontAwesomeIcon className="copyed" icon={faCheck} size="xl" style={{color: "#3ae524"}} />
+        }
+      </div>}
     </>
   )
 }

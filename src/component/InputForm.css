@@ -78,3 +78,35 @@ label {
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
+
+.copyed {
+  margin-left: 12px;
+}
+
+.bubble {
+  position: relative;
+  background: #a3a3a3;
+  color: #FFFFFF;
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 120px;
+  text-align: center;
+  width: 250px;
+  height: 120px;
+  border-radius: 10px;
+  padding: 0px;
+}
+.bubble:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  z-index: 1;
+  border-style: solid;
+  border-color: transparent #a3a3a3;
+  border-width: 20px 20px 20px 0;
+  top: 50%;
+  left: -20px;
+  margin-top: -20px;
+}
+
