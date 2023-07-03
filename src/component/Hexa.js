@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./Hexa.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Result } from "./Result";
 
 function Hexa(props) {
 
@@ -29,21 +28,12 @@ function Hexa(props) {
       console.error('Failed to copy');
       alert("Something went wrong please try again later")
     });
-
   }
 
   return (
     <>
       <button className="btn-password" onClick={generatePassword}>Create password</button>
-      {password.ready && <div className="password">
-        <h3 id="final">{password.value}</h3>
-        {!isCopyed &&
-        <FontAwesomeIcon className="copy" icon={faCopy} size="xl" onClick={() => toClipboard()} />
-        }
-        { isCopyed &&
-        <FontAwesomeIcon className="copyed" icon={faCheck} size="xl" style={{color: "#3ae524"}} />
-        }
-      </div>}
+      < Result password={password} isCopyed={isCopyed} handleClick={toClipboard}/>
     </>
   )
 }

@@ -1,0 +1,42 @@
+.copy {
+  padding-left: 30px;
+  color: rgb(255, 255, 255);
+  transition: 0.3s;
+}
+
+.copy:hover {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.copyed {
+  padding-left: 30px;
+}
+
+.password {
+  background-color: #6969698a;
+  color: white;
+  border: 1px solid #0000001a;
+  border-radius: 8px;
+  padding: 12px 30px;
+  margin: 30px auto;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-password {
+  background-color: #c1ff83;
+  border-radius: 6px;
+  border: 1px solid #0000001f;
+  padding: 12px 24px;
+  font-size: larger;
+  font-family: 'Oswald', sans-serif;
+  transition: 0.3s;
+  margin-top: 45px;
+}
+.btn-password:hover {
+  cursor: pointer;
+  background-color: #aaf461;
+}
