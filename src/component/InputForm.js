@@ -5,21 +5,23 @@ import { Result } from "./Result"
 
 function InputForm(props) {
 
-  const [firstWord, setfirstWord] = React.useState({value:""})
-  const [secondWord, setSecondWord] = React.useState({value:""})
   const [password, setPassword] = React.useState({value: "", ready: false})
   const [isCopyed, setIsCopied] = React.useState(false)
-  const [numberOfDigits, setNumberOfDigits] = React.useState(4)
-  const [numberOfSpeChars, setNumberOfSpeChars] = React.useState(2)
+  const [inputForm, setInputForm] = React.useState({
+    firstWord: "",
+    secondWord: "",
+    numberOfDigits: 4,
+    numberOfSpeChars: 2,
+  })
 
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (firstWord.value !== "" && secondWord.value !== "") {
+    if (inputForm.firstWord !== "" && inputForm.secondWord !== "") {
       const password = []
       const randomNumbers = []
-      let word1 = firstWord.value.split("")
-      let word2 = secondWord.value.split("")
+      let word1 = inputForm.firstWord.split("")
+      let word2 = inputForm.secondWord.split("")
 
       // Capitalize random letter
       const randomIndex1 = Math.floor(Math.random() * word1.length)
@@ -33,14 +35,14 @@ function InputForm(props) {
       password.push(word2)
 
       //Generate 4 random numbers
-      for (let i=0; i<numberOfDigits; i++) {
+      for (let i=0; i<inputForm.numberOfDigits; i++) {
         randomNumbers.push(Math.floor(Math.random() * 10))
       }
       password.push(randomNumbers.join(""))
 
       // Generate 2 special char
       const specialChars = ["!","@","#","$","%","^","&","*","(",")","_","+","-","=","[","]","{","}","?"]
-      for (let y=0; y<numberOfSpeChars; y++) {
+      for (let y=0; y<inputForm.numberOfSpeChars; y++) {
         const randomIndexChar = Math.floor(Math.random() * specialChars.length)
         password.push(specialChars[randomIndexChar])
       }
@@ -61,22 +63,28 @@ function InputForm(props) {
   }
 
   const handleFirstWord = (event) => {
-    setfirstWord( prev => {
+    setInputForm( prev => {
       return {...prev,
-        value: event.toLowerCase()}
+        firstWord: event.toLowerCase()}
       })
   }
   const handleSecondWord = (event) => {
-    setSecondWord( prev => {
+    setInputForm( prev => {
       return {...prev,
-        value: event.toLowerCase()}
+        secondWord: event.toLowerCase()}
       })
   }
   const handleNumberOfDigits = (event) => {
-    setNumberOfDigits(event)
+    setInputForm(prev => {
+      return {...prev,
+      numberOfDigits: event}
+    })
   }
   const handleNumberOfSpeChars = (event) => {
-    setNumberOfSpeChars(event)
+    setInputForm(prev => {
+      return {...prev,
+      numberOfSpeChars: event}
+    })
   }
 
   const toClipboard = () => {
@@ -100,20 +108,20 @@ function InputForm(props) {
           <label>
             First word :
           </label>
-          <input type="text" name="first-word" value={firstWord.value} onChange={e => handleFirstWord(e.target.value)} />
+          <input type="text" name="first-word" value={inputForm.firstWord} onChange={e => handleFirstWord(e.target.value)} />
         </div>
         <div className="input">
           <label>
             Second word :
           </label>
-          <input type="text" name="second-word" value={secondWord.value} onChange={e => handleSecondWord(e.target.value)} />
+          <input type="text" name="second-word" value={inputForm.secondWord} onChange={e => handleSecondWord(e.target.value)} />
         </div>
         </div>
         <div className="form-container">
           <div className="input">
             <label>Number of digits :
             </label>
-            <select onChange={e => handleNumberOfDigits(e.target.value)} defaultValue={numberOfDigits}>
+            <select onChange={e => handleNumberOfDigits(e.target.value)} defaultValue={inputForm.numberOfDigits}>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -124,7 +132,7 @@ function InputForm(props) {
           <div className="input">
             <label>Number of special characters :
             </label>
-            <select onChange={e => handleNumberOfSpeChars(e.target.value)} defaultValue={numberOfSpeChars}>
+            <select onChange={e => handleNumberOfSpeChars(e.target.value)} defaultValue={inputForm.numberOfSpeChars}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
