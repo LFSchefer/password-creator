@@ -47,14 +47,14 @@ function AutoForm(props) {
       password.push(word2)
 
       //Generate 4 random numbers
-      for (var i=0; i<4; i++) {
+      for (let i=0; i<4; i++) {
         randomNumbers.push(Math.floor(Math.random() * 10))
       }
       password.push(randomNumbers.join(""))
 
       // Generate 2 special char
       const specialChars = ["!","@","#","$","%","^","&","*","(",")","_","+","-","=","[","]","{","}","?"]
-      for (var i=0; i<2; i++) {
+      for (let i=0; i<2; i++) {
         const randomIndexChar = Math.floor(Math.random() * specialChars.length)
         password.push(specialChars[randomIndexChar])
       }

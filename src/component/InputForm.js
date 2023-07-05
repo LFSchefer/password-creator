@@ -9,6 +9,8 @@ function InputForm(props) {
   const [secondWord, setSecondWord] = React.useState({value:""})
   const [password, setPassword] = React.useState({value: "", ready: false})
   const [isCopyed, setIsCopied] = React.useState(false)
+  const [numberOfDigits, setNumberOfDigits] = React.useState(4)
+  const [numberOfSpeChars, setNumberOfSpeChars] = React.useState(2)
 
 
   const handleSubmit = (event) => {
@@ -31,14 +33,14 @@ function InputForm(props) {
       password.push(word2)
 
       //Generate 4 random numbers
-      for (var i=0; i<4; i++) {
+      for (let i=0; i<numberOfDigits; i++) {
         randomNumbers.push(Math.floor(Math.random() * 10))
       }
       password.push(randomNumbers.join(""))
 
       // Generate 2 special char
       const specialChars = ["!","@","#","$","%","^","&","*","(",")","_","+","-","=","[","]","{","}","?"]
-      for (var i=0; i<2; i++) {
+      for (let y=0; y<numberOfSpeChars; y++) {
         const randomIndexChar = Math.floor(Math.random() * specialChars.length)
         password.push(specialChars[randomIndexChar])
       }
@@ -70,6 +72,12 @@ function InputForm(props) {
         value: event.toLowerCase()}
       })
   }
+  const handleNumberOfDigits = (event) => {
+    setNumberOfDigits(event)
+  }
+  const handleNumberOfSpeChars = (event) => {
+    setNumberOfSpeChars(event)
+  }
 
   const toClipboard = () => {
     let text = document.getElementById('final').innerText;
@@ -100,6 +108,29 @@ function InputForm(props) {
           </label>
           <input type="text" name="second-word" value={secondWord.value} onChange={e => handleSecondWord(e.target.value)} />
         </div>
+        </div>
+        <div className="form-container">
+          <div className="input">
+            <label>Number of digits :
+            </label>
+            <select onChange={e => handleNumberOfDigits(e.target.value)} defaultValue={numberOfDigits}>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <div className="input">
+            <label>Number of special characters :
+            </label>
+            <select onChange={e => handleNumberOfSpeChars(e.target.value)} defaultValue={numberOfSpeChars}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
         </div>
       </form>
       <button className="btn-password" onClick={handleSubmit}>Create password</button>
