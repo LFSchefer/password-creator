@@ -42,7 +42,7 @@ function Hexa(props) {
           <label>
             Number of characters :
           </label>
-          <input type="text" name="second-word" value={numberOfChars} onChange={e => handlechange(e.target.value)} />
+          <input type="text" name="second-word" className="hexa-form" value={numberOfChars} onChange={e => handlechange(e.target.value)} />
         </div>
       </form>
       <button className="btn-password" onClick={generatePassword}>Create password</button>
