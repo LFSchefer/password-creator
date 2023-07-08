@@ -8,6 +8,7 @@ function AutoForm(props) {
   const [randomWord, setRandomWord] = React.useState()
   const [password, setPassword] = React.useState({value: "", ready: false})
   const [isCopyed, setIsCopied] = React.useState(false)
+  const [inputForm, setInputForm] = React.useState({numberOfDigits: 4, numberOfSpeChars: 2})
 
   const url = "https://random-word-api.herokuapp.com/word?number=2"
 
@@ -73,6 +74,18 @@ function AutoForm(props) {
     }
   }
 
+  const handleNumberOfDigits = (event) => {
+    setInputForm(prev => {
+      return {...prev, numberOfDigits: event}
+    })
+  }
+
+  const handleNumberOfSpeChars = (event) => {
+    setInputForm(prev => {
+      return {...prev, numberOfSpeChars: event}
+    })
+  }
+
   const toClipboard = () => {
     let text = document.getElementById('final').innerText;
 
@@ -88,6 +101,29 @@ function AutoForm(props) {
 
   return (
     <>
+     <div className="form-container">
+          <div className="input">
+            <label>Number of digits :
+            </label>
+            <select onChange={e => handleNumberOfDigits(e.target.value)} defaultValue={inputForm.numberOfDigits}>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <div className="input">
+            <label>Number of special characters :
+            </label>
+            <select onChange={e => handleNumberOfSpeChars(e.target.value)} defaultValue={inputForm.numberOfSpeChars}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+        </div>
       <button className="btn-password" onClick={autoSubmit}>Create password</button>
       < Result password={password} isCopyed={isCopyed} handleClick={toClipboard}/>
     </>

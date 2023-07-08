@@ -16,6 +16,7 @@ function Result(props) {
         <FontAwesomeIcon className="copyed" icon={faCheck} size="xl" style={{color: "#3ae524"}} />
         }
       </div>}
+      { props.isCopyed && <div className="message"><p>Copied to clipboard :)</p></div>}
     </>
   )
 }

@@ -1,6 +1,21 @@
 .App {
   text-align: center;
   font-family: 'Oswald', sans-serif;
+  position: relative;
+  min-height: 100vh;
+}
+
+.App::before {
+  position: absolute;
+  content: "";
+  background-image: url(../public/lock-logo.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  opacity: 0.05;
+  top: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 body {
@@ -16,10 +31,21 @@ body {
 }
 
 .btn {
-  background-color: rgb(175, 175, 175);
-  border-radius: 6px;
+  background-color: #3b5c6d8a;
+  border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   cursor: pointer;
   margin: 30px;
   padding: 12px 24px;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.selected {
+  border: 2px solid rgb(80, 182, 255);
+  opacity: 1;
 }

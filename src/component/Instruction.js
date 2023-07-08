@@ -4,7 +4,7 @@ import "./Instruction.css"
 function Instruction(props) {
 
   const word = <div className="instruction">
-    <p>Please enter to word and choose how many digits and special charaters you want:</p>
+    <p>Please enter two words and choose how many digits and special charaters you want:</p>
   </div>
 
   const random = <div className="instruction">
