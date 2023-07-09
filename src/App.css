@@ -1,11 +1,11 @@
 .App {
   text-align: center;
   font-family: 'Oswald', sans-serif;
-  position: relative;
+  /* position: relative; */
   min-height: 100vh;
 }
 
-.App::before {
+/* .App::before {
   position: absolute;
   content: "";
   background-image: url(../public/lock-logo.png);
@@ -16,7 +16,7 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
-}
+} */
 
 body {
   margin: 0;

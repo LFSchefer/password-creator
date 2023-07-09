@@ -122,7 +122,7 @@ function InputForm(props) {
             <label>Number of digits :
             </label>
             <select onChange={e => handleNumberOfDigits(e.target.value)} defaultValue={inputForm.numberOfDigits}>
-              <option value="2">2</option>
+              <option data-testid="nDigits" value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
