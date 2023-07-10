@@ -108,13 +108,13 @@ function InputForm(props) {
           <label>
             First word :
           </label>
-          <input type="text" name="first-word" value={inputForm.firstWord} onChange={e => handleFirstWord(e.target.value)} />
+          <input type="text" name="first-word" placeholder="chocolat" value={inputForm.firstWord} onChange={e => handleFirstWord(e.target.value)} />
         </div>
         <div className="input">
           <label>
             Second word :
           </label>
-          <input type="text" name="second-word" value={inputForm.secondWord} onChange={e => handleSecondWord(e.target.value)} />
+          <input type="text" name="second-word" placeholder="noir" value={inputForm.secondWord} onChange={e => handleSecondWord(e.target.value)} />
         </div>
         </div>
         <div className="form-container">

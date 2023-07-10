@@ -8,7 +8,7 @@ function Result(props) {
   return (
     <>
          {props.password.ready && <div className="password">
-        <h3 id="final">{props.password.value}</h3>
+        <h3 id="final" title="password">{props.password.value}</h3>
         {!props.isCopyed &&
         <FontAwesomeIcon className="copy" icon={faCopy} size="xl" onClick={props.handleClick} />
         }
