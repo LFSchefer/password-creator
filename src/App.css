@@ -5,19 +5,6 @@
   min-height: 100vh;
 }
 
-/* .App::before {
-  position: absolute;
-  content: "";
-  background-image: url(../public/lock-logo.png);
-  background-repeat: no-repeat;
-  background-size: auto;
-  opacity: 0.05;
-  top: 50px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-} */
-
 body {
   margin: 0;
   padding: 0;
