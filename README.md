@@ -33,6 +33,6 @@ untill the generated password suit you.
 
 ### `links`
 
-[Linkedin](https://www.linkedin.com/in/lfschefer/)
-[Github](https://github.com/LFSchefer)
+[Linkedin](https://www.linkedin.com/in/lfschefer/) \
+[Github](https://github.com/LFSchefer) \
 [Portfolio](https://portfoliolfschefer-b252e17dfee6.herokuapp.com/)
