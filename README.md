@@ -22,7 +22,7 @@ and digits you want to create your password.
 You can generate a new password as mutch as you want \
 untill the generated password suit you.
 
-### `Hexadecimal`
+### `Alphanumeric`
 
 Select the number of characters you want \
 it will generate a password using random letters \

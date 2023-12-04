@@ -19,7 +19,7 @@ function App() {
   const selectBtn = <div className='select-btn'>
     <div className={select === 1 ? "btn selected" : "btn"} onClick={() => chooseAlgo(1)}>Chose your word</div>
     <div className={select === 2 ? "btn selected" : "btn"} onClick={() => chooseAlgo(2)}>Random word</div>
-    <div className={select === 3 ? "btn selected" : "btn"} onClick={() => chooseAlgo(3)}>Hexadecimal</div>
+    <div className={select === 3 ? "btn selected" : "btn"} onClick={() => chooseAlgo(3)}>Alphanumeric</div>
   </div>
 
   return (
