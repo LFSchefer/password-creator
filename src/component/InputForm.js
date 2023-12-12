@@ -34,13 +34,13 @@ function InputForm(props) {
       word2 = word2.join("")
       password.push(word2)
 
-      //Generate 4 random numbers
+      //Generate random numbers
       for (let i=0; i<inputForm.numberOfDigits; i++) {
         randomNumbers.push(Math.floor(Math.random() * 10))
       }
       password.push(randomNumbers.join(""))
 
-      // Generate 2 special char
+      // Generate special char
       const specialChars = ["!","@","#","$","%","^","&","*","(",")","_","+","-","=","[","]","{","}","?"]
       for (let y=0; y<inputForm.numberOfSpeChars; y++) {
         const randomIndexChar = Math.floor(Math.random() * specialChars.length)
