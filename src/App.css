@@ -17,6 +17,15 @@ body {
   justify-content: center;
 }
 
+@media (max-width: 724px)  {
+  .select-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .btn {
   background-color: #3b5c6d8a;
   border-radius: 2px;

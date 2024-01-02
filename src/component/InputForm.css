@@ -8,6 +8,19 @@
   margin: 0 auto;
 }
 
+@media (max-width: 1250px) {
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: fit-content;
+    width: 35%;
+    padding: 15px;
+    margin: 0 auto;
+  }
+}
+
 .input {
   display: flex;
   justify-content: space-between;
